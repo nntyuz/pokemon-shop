@@ -1,0 +1,15 @@
+@import './variables.scss';
+@import './utils.scss';
+@import './components/index.scss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  max-width: 1600px;
+  min-width: 375px;
+  font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+  color: var(--color-dark);
+}
