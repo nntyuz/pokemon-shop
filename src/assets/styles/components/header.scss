@@ -1,0 +1,12 @@
+.global-header-component {
+  padding: 20px 0;
+  box-shadow: var(--box-shadow-default);
+
+  .logo {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 0 15px;
+    border-left: 1px solid var(--color-primary);
+  }
+}
