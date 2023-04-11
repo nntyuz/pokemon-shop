@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: auto;
+  max-width: 330px;
+  min-width: 330px;
+  max-height: 330px;
+  min-height: 330px;
+  padding: 10px;
+  background: var(--color-light);
+  color: var(--color-dark);
+  border-radius: var(--border-radius-default);
+  border-bottom: 10px solid transparent;
+  transition: var(--transition-default);
+  box-shadow: var(--box-shadow-default);
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+    border-bottom: 10px solid var(--color-dark);
+  }
+
+  .id {}
+
+  .name {}
+}

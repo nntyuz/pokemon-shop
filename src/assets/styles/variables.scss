@@ -1,8 +1,8 @@
 html {
   --color-primary: #00203FFF;
   --color-secondary: #ADEFD1FF;
-  --color-gradient: linear-gradient(60deg, var(--color-primary), var(--color-secondary));
-  --color-light: #FCF6F5FF;
+  --color-gradient: linear-gradient(60deg, var(--color-dark), var(--color-secondary));
+  --color-light: #f1f1f1;
   --color-dark: #101820FF;
 
   --border-radius-large: 20px;
@@ -10,5 +10,6 @@ html {
 
   --transition-default: all 300ms;
   --box-shadow-default: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0px 10px 15px -3px rgba(0, 0, 0, 0.3);
 
 }
