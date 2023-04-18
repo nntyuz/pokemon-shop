@@ -3,7 +3,7 @@
     <div class="id text-small">{{ `#${pokemon.id}` }}</div>
     <img
       :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`"
-      alt="PokemonId"
+      alt="Pokemon Image"
       width="96"
       height="96"
     />
@@ -13,18 +13,10 @@
 </template>
 
 <script>
-import { useMainStore } from '../stores/store.js'
-import { mapState } from 'pinia'
 export default {
   name: 'CardComponent',
-  computed: {
-    ...mapState(useMainStore, {
-      pokemons: (store) => store.pokemons
-    })
-  },
-  created() {
-    const store = useMainStore()
-    store.getAllPokemons()
+  props: {
+    pokemons: Array
   }
 }
 </script>
