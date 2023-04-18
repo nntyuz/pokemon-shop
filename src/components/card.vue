@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     errorSrc(e) {
-      e.target.src = '../../public/img/no-image.png'
+      e.target.src = '/img/no-image.png'
     }
   }
 }
