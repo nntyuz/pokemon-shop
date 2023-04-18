@@ -6,6 +6,7 @@
       alt="Pokemon Image"
       width="96"
       height="96"
+      @error="errorSrc"
     />
     <div class="name text-base">{{ pokemon.name }}</div>
     <vButton type="primary" size="medium" class="font-bold">Catch</vButton>
@@ -17,6 +18,11 @@ export default {
   name: 'CardComponent',
   props: {
     pokemons: Array
+  },
+  methods: {
+    errorSrc(e) {
+      e.target.src = '../../public/img/no-image.png'
+    }
   }
 }
 </script>
