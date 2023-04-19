@@ -40,7 +40,7 @@ export default {
   methods: {
     getAllPokemons() {
       const store = useMainStore()
-      return store.getAllPokemons(this.offset)
+      store.getAllPokemons(this.offset)
     },
     next() {
       this.offset = this.offset + this.pokemonsPerPage
