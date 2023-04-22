@@ -11,7 +11,7 @@ import { mapState } from 'pinia'
 import Card from '../components/card.vue'
 import Pagination from '../components/pagination.vue'
 export default {
-  name: 'HomeComponent',
+  name: 'HomePage',
   components: {
     Card,
     Pagination
