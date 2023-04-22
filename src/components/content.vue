@@ -1,12 +1,7 @@
 <template>
   <section class="w-container flex a-center j-between wrap gap-20 pt-100">
     <card :pokemons="pokemons" />
-    <pagination
-      :pages="Math.ceil(count / pokemonsPerPage)"
-      :page="page"
-      @next-page="next"
-      @prev-page="prev"
-    />
+    <pagination :pages="Math.ceil(count / pokemonsPerPage)" :page="page" @pagination="pagination" />
   </section>
 </template>
 
@@ -24,8 +19,7 @@ export default {
   data() {
     return {
       page: 1,
-      pokemonsPerPage: 20,
-      offset: 0
+      pokemonsPerPage: 20
     }
   },
   computed: {
@@ -35,22 +29,18 @@ export default {
     })
   },
   created() {
-    this.getAllPokemons()
+    this.page = Number(this.$route.query.page) || 1
+    this.getAllPokemons((this.page - 1) * this.pokemonsPerPage)
   },
   methods: {
-    getAllPokemons() {
+    getAllPokemons(offset) {
       const store = useMainStore()
-      store.getAllPokemons(this.offset)
+      store.getAllPokemons(offset)
     },
-    next() {
-      this.offset = this.offset + this.pokemonsPerPage
-      this.page++
-      this.getAllPokemons()
-    },
-    prev() {
-      this.offset = this.offset - this.pokemonsPerPage
-      this.page--
-      this.getAllPokemons()
+    pagination(page) {
+      this.page = page
+      this.getAllPokemons((page - 1) * this.pokemonsPerPage)
+      this.$router.replace({ path: '/', query: { page } })
     }
   }
 }

@@ -1,13 +1,12 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
-
 export const useMainStore = defineStore('main', {
   state: () => ({
     pokemons: [],
     count: null
   }),
   actions: {
-    getAllPokemons(offset) {
+    getAllPokemons(offset = 0) {
       axios
         .get(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`)
         .then((res) => {
