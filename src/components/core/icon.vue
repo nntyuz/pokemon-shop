@@ -10,6 +10,7 @@ import telegram from '../icons/telegram.vue'
 import mail from '../icons/mail.vue'
 import arrowLeft from '../icons/arrow-left.vue'
 import arrowRight from '../icons/arrow-right.vue'
+import pokeball from '../icons/pokeball.vue'
 export default {
   name: 'vIcon',
   components: {
@@ -17,7 +18,8 @@ export default {
     telegram,
     mail,
     arrowLeft,
-    arrowRight
+    arrowRight,
+    pokeball
   },
   props: {
     name: String
