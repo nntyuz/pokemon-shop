@@ -1,7 +1,7 @@
 <template>
   <section class="w-container flex a-center j-between wrap gap-20 pt-100">
     <h1 v-if="cart.length === 0" class="text-large font-bold w-100 text-a-center">
-      Your captured Pokemons
+      Not a single pokemon caught
     </h1>
     <card :pokemons="cart" />
   </section>
