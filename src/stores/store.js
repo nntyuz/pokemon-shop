@@ -2,8 +2,9 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 export const useMainStore = defineStore('main', {
   state: () => ({
+    count: null,
     pokemons: [],
-    count: null
+    cart: []
   }),
   actions: {
     getAllPokemons(offset = 0) {
@@ -25,6 +26,18 @@ export const useMainStore = defineStore('main', {
         .catch((error) => {
           console.log('error', error)
         })
+    },
+    addToCart(pokemon) {
+      pokemon = this.pokemons.find((a) => a.id === pokemon.id)
+      // проверка на одинаковый id у pokemon
+      const index = this.cart.findIndex((a) => a.id === pokemon.id)
+      if (index !== -1) {
+        // в случае одинакового id, мы не добавляем этот элемент в массив cart
+        return
+      } else {
+        // если id разный, мы добавляем
+        this.cart.push(pokemon)
+      }
     }
   }
 })
