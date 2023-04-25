@@ -9,7 +9,14 @@
       @error="errorSrc"
     />
     <div class="name text-base">{{ pokemon.name }}</div>
-    <vButton type="primary" size="medium" class="font-bold">Catch</vButton>
+    <vButton
+      v-if="$route.href !== '/cart'"
+      type="primary"
+      size="medium"
+      class="font-bold"
+      @click="$emit('add', pokemon)"
+      >Catch</vButton
+    >
   </div>
 </template>
 
@@ -17,8 +24,11 @@
 export default {
   name: 'CardComponent',
   props: {
-    pokemons: Array
+    pokemons: {
+      type: [Array, Object]
+    }
   },
+  emits: ['add'],
   methods: {
     errorSrc(e) {
       e.target.src = '/img/no-image.png'

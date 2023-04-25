@@ -1,6 +1,6 @@
 <template>
   <section class="w-container flex a-center j-between wrap gap-20 pt-100">
-    <card :pokemons="pokemons" />
+    <card :pokemons="pokemons" @add="addToCart" />
     <pagination :pages="Math.ceil(count / pokemonsPerPage)" :page="page" @pagination="pagination" />
   </section>
 </template>
@@ -36,6 +36,10 @@ export default {
     getAllPokemons(offset) {
       const store = useMainStore()
       store.getAllPokemons(offset)
+    },
+    addToCart(pokemon) {
+      const store = useMainStore()
+      store.addToCart(pokemon)
     },
     pagination(page) {
       this.page = page
