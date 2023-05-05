@@ -11,6 +11,7 @@ import mail from '../icons/mail.vue'
 import arrowLeft from '../icons/arrow-left.vue'
 import arrowRight from '../icons/arrow-right.vue'
 import pokeball from '../icons/pokeball.vue'
+import star from '../icons/star.vue'
 export default {
   name: 'vIcon',
   components: {
@@ -19,7 +20,8 @@ export default {
     mail,
     arrowLeft,
     arrowRight,
-    pokeball
+    pokeball,
+    star
   },
   props: {
     name: String
