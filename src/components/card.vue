@@ -9,14 +9,19 @@
       @error="errorSrc"
     />
     <div class="name text-base">{{ pokemon.name }}</div>
-    <vButton
-      v-if="$route.href !== '/cart'"
-      type="primary"
-      size="medium"
-      class="font-bold"
-      @click="$emit('add', pokemon)"
-      >Catch</vButton
-    >
+    <div v-if="!$route.href.includes('/cart')" class="flex a-center gap-20">
+      <vButton type="primary" size="medium" class="font-bold" @click="$emit('cart', pokemon)"
+        >Buy</vButton
+      >
+      <vButton
+        v-if="!$route.href.includes('/favorites')"
+        type="primary"
+        size="medium"
+        class="font-bold"
+        @click="$emit('favorites', pokemon)"
+        >Like</vButton
+      >
+    </div>
   </div>
 </template>
 
@@ -28,7 +33,7 @@ export default {
       type: [Array, Object]
     }
   },
-  emits: ['add'],
+  emits: ['cart', 'favorites'],
   methods: {
     errorSrc(e) {
       e.target.src = '/img/no-image.png'
