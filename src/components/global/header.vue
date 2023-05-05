@@ -4,9 +4,14 @@
       <router-link to="/" class="logo text-large font-bold c-default">
         vue-<span class="text-gradient">pokemon</span>-shop
       </router-link>
-      <router-link to="/cart">
-        <vButton type="text" size="medium" icon="pokeball" class="font-bold">Your pokemons</vButton>
-      </router-link>
+      <div class="flex a-center gap-20">
+        <router-link to="/cart">
+          <vButton type="outline" size="medium" icon="pokeball" class="font-bold">Cart</vButton>
+        </router-link>
+        <router-link to="/favorites">
+          <vButton type="outline" size="medium" icon="star" class="font-bold">Favorites</vButton>
+        </router-link>
+      </div>
     </div>
   </header>
 </template>
