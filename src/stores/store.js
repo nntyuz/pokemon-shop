@@ -4,7 +4,8 @@ export const useMainStore = defineStore('main', {
   state: () => ({
     count: null,
     pokemons: [],
-    cart: []
+    cart: [],
+    favorites: []
   }),
   actions: {
     getAllPokemons(offset = 0) {
@@ -37,6 +38,18 @@ export const useMainStore = defineStore('main', {
       } else {
         // если id разный, мы добавляем
         this.cart.push(pokemon)
+      }
+    },
+    addToFavorites(pokemon) {
+      pokemon = this.pokemons.find((a) => a.id === pokemon.id)
+      // проверка на одинаковый id у pokemon
+      const index = this.favorites.findIndex((a) => a.id === pokemon.id)
+      if (index !== -1) {
+        // в случае одинакового id, мы не добавляем этот элемент в массив favorites
+        return
+      } else {
+        // если id разный, мы добавляем
+        this.favorites.push(pokemon)
       }
     }
   }
